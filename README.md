@@ -17,5 +17,7 @@ npm run build
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+저자 사이트: https://vuejstodo-aa185.firebaseapp.com/
+
 ## UI
 <img src="ui_sample.png">
