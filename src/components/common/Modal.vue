@@ -1,3 +1,7 @@
+<!--
+https://vuejs.org/examples/#modal 에서 다운로드
+-->
+
 <template lang="html">
   <Transition name="modal">
     <div v-if="show" class="modal-mask">
@@ -98,5 +102,9 @@ export default {
   .modal-leave-to .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+  }
+
+  .modal-footer span {
+    cursor: pointer;
   }
 </style>
