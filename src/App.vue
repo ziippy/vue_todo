@@ -5,6 +5,7 @@
     <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
     <TodoFooter v-on:removeAll="clearAll"></TodoFooter>
     <DatePicker></DatePicker>
+    <SampleChart></SampleChart>
   </div>
 </template>
 
@@ -13,9 +14,10 @@ import TodoHeader from './components/TodoHeader.vue'
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
-
 // jQuery UI
 import DatePicker from './components/common/DatePicker.vue'
+// HighChart
+import SampleChart from './components/SampleChart.vue'
 
 export default {
   data() {
@@ -54,6 +56,8 @@ export default {
     'TodoFooter': TodoFooter,
     // jQuery UI
     'DatePicker': DatePicker,
+    // HighChart
+    'SampleChart': SampleChart,
   }
 }
 </script>

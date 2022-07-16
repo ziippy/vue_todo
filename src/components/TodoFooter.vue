@@ -1,6 +1,12 @@
 <template lang="html">
+  <!--
   <div class="clearAllContainer">
     <span class="clearAllBtn" @click="clearTodo">Clear All</span>
+  </div>
+  -->
+  <!-- using vue bootstrap -->
+  <div>
+    <button type="button" class="btn btn-primary btn-lg" @click="clearTodo">Clear All</button>
   </div>
 </template>
 
@@ -29,5 +35,9 @@ export default {
   .clearAllBtn {
     color: #e20303;
     display: block;
+  }
+
+  .btn {
+    cursor: pointer;
   }
 </style>

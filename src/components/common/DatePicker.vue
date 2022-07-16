@@ -1,5 +1,7 @@
 <template lang="html">
-  <input id="calendar">
+  <div class="calendarBox">
+    <input id="calendar" placeholder="클릭하면 달력이 보입니다." >
+  </div>
 </template>
 
 <script>
@@ -11,4 +13,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  #calendar {
+    float: right;
+    margin: 10px;
+    font-size: 0.9rem;
+    text-align: right;
+  }
 </style>
