@@ -4,6 +4,7 @@
     <TodoInput v-on:addTodo="addTodo"></TodoInput>
     <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
     <TodoFooter v-on:removeAll="clearAll"></TodoFooter>
+    <DatePicker></DatePicker>
   </div>
 </template>
 
@@ -12,6 +13,9 @@ import TodoHeader from './components/TodoHeader.vue'
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
+
+// jQuery UI
+import DatePicker from './components/common/DatePicker.vue'
 
 export default {
   data() {
@@ -25,6 +29,9 @@ export default {
         this.todoItems.push(localStorage.key(i));
       }
     }
+    // jQuery, jQuery Ui load check
+    console.log($.fn.jquery);
+    console.log($.ui.version);
   },
   methods: {
     addTodo(todoItem) {
@@ -45,6 +52,8 @@ export default {
     'TodoInput': TodoInput,
     'TodoList': TodoList,
     'TodoFooter': TodoFooter,
+    // jQuery UI
+    'DatePicker': DatePicker,
   }
 }
 </script>
