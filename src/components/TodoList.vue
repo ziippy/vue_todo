@@ -2,10 +2,15 @@
   <section>
     <!--<ul>-->
     <transition-group name="list" tag="ul">
-      <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shodow">
+      <li v-for="(todoItem, index) in todolist" :key="todoItem.id" class="shodow">
         <i class="checkBtn fas fa-check" aria-hidden="true"></i>
-        {{ todoItem }}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+        {{ todoItem.todo }}
+        <!--
+        <span class="removeBtn" type="button" @click.stop="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </span>
+        -->
+        <span class="removeBtn" type="button" @click.stop="removeTodo({id: todoItem.id})">
           <i class="fas fa-trash-alt" aria-hidden="true"></i>
         </span>
       </li>
@@ -16,9 +21,10 @@
 
 <script>
 import Constant from '../Constant'
+import { mapState, mapActions } from 'vuex'
 
 export default {
-  props: ['propsdata'],
+  //props: ['propsdata'],
   // data() {
   //   return {
   //     todoItems: []
@@ -31,20 +37,29 @@ export default {
   //     }
   //   }
   // },
-  computed : {
-    todolist() {
-      return this.$store.state.todolist;
-    }
-  },
+  // computed : {
+  //   //todolist() {
+  //   //  return this.$store.state.todolist;
+  //   //}
+  // },
+  // methods: {
+  //   removeTodo(todoItem, index) {
+  //     console.log('removeTodo', todoItem, index);
+  //     //this.$emit('removeTodo', todoItem, index);
+  //     //localStorage.removeItem(todoItem);
+  //     //this.todoItems.splice(index, 1);
+  //     this.$store.commit(Constant.REMOVE_TODO, {id:id})
+  //   },
+  // }
+  computed : mapState(['todolist']),
   methods: {
-    removeTodo(todoItem, index) {
-      console.log('removeTodo', todoItem, index);
-      //this.$emit('removeTodo', todoItem, index);
-      //localStorage.removeItem(todoItem);
-      //this.todoItems.splice(index, 1);
-      this.$store.commit(Constant.REMOVE_TODO, {id:id})
-    },
+    ...mapActions([
+      Constant.REMOVE_TODO
+    ])
   }
+  // ...mapMutations([
+  //   Constant.REMOVE_TODO
+  // ])
 }
 </script>
 
