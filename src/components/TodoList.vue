@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import Constant from '../Constant'
+
 export default {
   props: ['propsdata'],
   // data() {
@@ -29,12 +31,18 @@ export default {
   //     }
   //   }
   // },
+  computed : {
+    todolist() {
+      return this.$store.state.todolist;
+    }
+  },
   methods: {
     removeTodo(todoItem, index) {
       console.log('removeTodo', todoItem, index);
-      this.$emit('removeTodo', todoItem, index);
+      //this.$emit('removeTodo', todoItem, index);
       //localStorage.removeItem(todoItem);
       //this.todoItems.splice(index, 1);
+      this.$store.commit(Constant.REMOVE_TODO, {id:id})
     },
   }
 }

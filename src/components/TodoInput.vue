@@ -1,6 +1,6 @@
 <template>
   <div class="inputBox shadow">
-    <input type="text" v-model="newTodoItem" placeholder="할일을 남기세요!" v-on:keyup.enter="addTodo">
+    <input type="text" v-model.trim="newTodoItem" placeholder="할일을 남기세요!" v-on:keyup.enter="addTodo">
     <span class="addContainer" v-on:click="addTodo">
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
@@ -20,6 +20,7 @@
 
 <script>
 import Modal from './common/Modal.vue'
+import Constant from '../Constant'
 
 export default {
   data() {
@@ -33,8 +34,9 @@ export default {
       if (this.newTodoItem !== "") {
         console.log(this.newTodoItem);
         //localStorage.setItem(this.newTodoItem, this.newTodoItem);
-        var value = this.newTodoItem && this.newTodoItem.trim();
-        this.$emit('addTodo', value);
+        //var value = this.newTodoItem && this.newTodoItem.trim();
+        //this.$emit('addTodo', value);
+        this.$store.commit(Constant.ADD_TODO, { todo: this.newTodoItem });
         this.clearInput();
       } else {
         this.showModal = !this.showModal;
