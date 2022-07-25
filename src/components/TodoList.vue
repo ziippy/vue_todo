@@ -21,7 +21,8 @@
 
 <script>
 import Constant from '../Constant'
-import { mapState, mapActions } from 'vuex'
+//import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   //props: ['propsdata'],
@@ -51,15 +52,18 @@ export default {
   //     this.$store.commit(Constant.REMOVE_TODO, {id:id})
   //   },
   // }
-  computed : mapState(['todolist']),
+  //computed : mapState(['todolist']),
+  computed : mapGetters({
+    todolist: 'all'
+  }),
   methods: {
     ...mapActions([
       Constant.REMOVE_TODO
     ])
-  }
-  // ...mapMutations([
-  //   Constant.REMOVE_TODO
-  // ])
+  },
+  ...mapMutations([
+    Constant.REMOVE_TODO
+  ])
 }
 </script>
 
