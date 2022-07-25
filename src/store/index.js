@@ -2,17 +2,20 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Constant from '../Constant';
 
+import state from './state';
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    state: {
-        todolist : [
-            { id:1, todo : "영화보기" },
-            { id:2, todo : "주말 산책" },
-            { id:3, todo : "Vue.js 학습" },
-            { id:4, todo : "잠실 야구장" },
-        ]
-    },
+    // state: {
+    //     todolist : [
+    //         { id:1, todo : "영화보기" },
+    //         { id:2, todo : "주말 산책" },
+    //         { id:3, todo : "Vue.js 학습" },
+    //         { id:4, todo : "잠실 야구장" },
+    //     ]
+    // },
+    state: state,
     getters: {
       all(state) {
         return state.todolist;
