@@ -13,6 +13,11 @@ const store = new Vuex.Store({
             { id:4, todo : "잠실 야구장" },
         ]
     },
+    getters: {
+      all(state) {
+        return state.todolist;
+      }
+    },
     mutations: {
       [Constant.ADD_TODO] : (state, payload) => {
         if (payload.todo !== "") {
@@ -21,7 +26,7 @@ const store = new Vuex.Store({
         }
       },
       [Constant.CLEAR_ALL] : (state) => {
-        state.todolist[index] = [];
+        state.todolist = [];
       },
       [Constant.REMOVE_TODO] : (state, payload) => {
         var index = state.todolist.findIndex((item)=>item.id === payload.id);
@@ -35,7 +40,7 @@ const store = new Vuex.Store({
       },
       [Constant.CLEAR_ALL] : (store) => {
         console.log("###clearAll!!!");
-        store.commit(Constant.DELETE_TODO, payload);
+        store.commit(Constant.CLEAR_ALL);
       },
       [Constant.REMOVE_TODO] : (store, payload) => {
         console.log("###removeTodo!!!", payload);
