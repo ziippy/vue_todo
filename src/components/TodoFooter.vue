@@ -6,17 +6,24 @@
   -->
   <!-- using vue bootstrap -->
   <div>
-    <button type="button" class="btn btn-primary btn-lg" @click="clearTodo">Clear All</button>
+    <button type="button" class="btn btn-primary btn-lg" @click.stop="clearTodo">Clear All</button>
   </div>
 </template>
 
 <script>
+import Constant from '../Constant'
+//import { mapActions } from 'vuex'
+
 export default {
   methods: {
     clearTodo() {
       //localStorage.clear();
-      this.$emit('removeAll');
+      //this.$emit('removeAll');
+      this.$store.dispatch(Constant.CLEAR_ALL);
     }
+    // ...mapActions({
+    //   clearTodo : Constant.CLEAR_ALL
+    // })
   }
 }
 </script>
